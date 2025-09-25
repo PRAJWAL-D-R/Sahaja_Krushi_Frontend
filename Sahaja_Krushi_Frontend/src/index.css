@@ -1,0 +1,440 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Colors */
+    --color-border: #e5e7eb;
+    --color-input: #e5e7eb;
+    --color-ring: #2D5016;
+    --color-background: #ffffff;
+    --color-foreground: #111827;
+
+    /* Primary Colors - Earth tones for agricultural theme */
+    --color-primary: #4CAF50;
+    --color-primary-hover: #1F3B0F;
+    --color-primary-light: #4A7C2A;
+    --color-primary-50: #F0F7ED;
+    --color-primary-100: #DCE8D3;
+    --color-primary-200: #B9D1A7;
+    --color-primary-300: #96BA7B;
+    --color-primary-400: #73A34F;
+    --color-primary-500: #4A7C2A;
+    --color-primary-600: #3D6522;
+    --color-primary-700: #2D5016;
+    --color-primary-800: #1F3B0F;
+    --color-primary-900: #0F1D08;
+
+    /* Secondary Colors - Warm earth tones */
+    --color-secondary: #8BC34A;
+    --color-secondary-hover: #6B3410;
+    --color-secondary-light: #A0522D;
+    --color-secondary-50: #FDF7F3;
+    --color-secondary-100: #F9E8DC;
+    --color-secondary-200: #F0CDB3;
+    --color-secondary-300: #E7B28A;
+    --color-secondary-400: #DE9761;
+    --color-secondary-500: #CD853F;
+    --color-secondary-600: #A0522D;
+    --color-secondary-700: #8B4513;
+    --color-secondary-800: #6B3410;
+    --color-secondary-900: #4A240B;
+
+    /* Accent Colors */
+    --color-harvest: #DAA520; /* Golden Rod - for harvest/yield */
+    --color-harvest-hover: #B8860B;
+    --color-growth: #32CD32; /* Lime Green - for growth/health */
+    --color-growth-hover: #228B22;
+    --color-sky: #87CEEB; /* Sky Blue - for weather/irrigation */
+    --color-sky-hover: #4682B4;
+    --color-soil: #8B4A2B; /* Brown - for soil/land */
+    --color-soil-hover: #654321;
+
+    /* Status Colors */
+    --color-success: #228B22; /* Forest Green */
+    --color-success-hover: #1F5F1F;
+    --color-warning: #FF8C00; /* Dark Orange */
+    --color-warning-hover: #E67E00;
+    --color-danger: #B22222; /* Fire Brick */
+    --color-danger-hover: #8B0000;
+    --color-info: #4682B4; /* Steel Blue */
+    --color-info-hover: #2F4F4F;
+
+    /* Neutral Colors */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-gray-50: #F9FAFB;
+    --color-gray-100: #F3F4F6;
+    --color-gray-200: #E5E7EB;
+    --color-gray-300: #D1D5DB;
+    --color-gray-400: #9CA3AF;
+    --color-gray-500: #6B7280;
+    --color-gray-600: #4B5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1F2937;
+    --color-gray-900: #111827;
+
+    /* Dark Theme Colors */
+    --color-dark-bg: #0F1419;
+    --color-dark-surface: #1C2128;
+    --color-dark-border: #30363D;
+    --color-dark-text: #E6EDF3;
+    --color-dark-text-secondary: #8B949E;
+
+    /* Typography */
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+
+    --color-accent: #FFC107;
+    --color-text: #333333;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-text;
+    font-family: var(--font-family-primary);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  /* Button Components */
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90;
+  }
+
+  .btn-success {
+    @apply bg-green-600 text-white hover:bg-green-700 shadow-md;
+  }
+
+  .btn-warning {
+    @apply bg-orange-500 text-white hover:bg-orange-600 shadow-md;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 shadow-md;
+  }
+
+  .btn-outline {
+    @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .btn-sm {
+    @apply h-8 px-3 text-xs;
+  }
+
+  .btn-md {
+    @apply h-10 px-4 py-2;
+  }
+
+  .btn-lg {
+    @apply h-12 px-8 text-base;
+  }
+
+  /* Card Components */
+  .card {
+    @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+  }
+
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
+  }
+
+  .card-body {
+    @apply p-6 pt-0;
+  }
+
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
+  }
+
+  /* Form Components */
+  .form-control {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .form-label {
+    @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+  }
+
+  .form-error {
+    @apply text-sm text-red-600 dark:text-red-400;
+  }
+
+  .form-help {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Agricultural specific components */
+  .crop-status-healthy {
+    @apply bg-green-100 text-green-800 border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800;
+  }
+
+  .crop-status-warning {
+    @apply bg-yellow-100 text-yellow-800 border-yellow-200 dark:bg-yellow-900/20 dark:text-yellow-400 dark:border-yellow-800;
+  }
+
+  .crop-status-danger {
+    @apply bg-red-100 text-red-800 border-red-200 dark:bg-red-900/20 dark:text-red-400 dark:border-red-800;
+  }
+
+  .weather-card {
+    @apply bg-gradient-to-br from-sky-400 to-sky-600 text-white rounded-xl p-6 shadow-lg;
+  }
+
+  .soil-monitor {
+    @apply bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/20 dark:to-orange-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4;
+  }
+
+  .harvest-summary {
+    @apply bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 border border-green-200 dark:border-green-800 rounded-lg p-6;
+  }
+
+  /* Navigation */
+  .nav-item {
+    @apply flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .nav-item.active {
+    @apply bg-primary text-white;
+  }
+
+  /* Table Components */
+  .data-table {
+    @apply w-full border-collapse border border-border rounded-lg overflow-hidden;
+  }
+
+  .data-table th {
+    @apply bg-muted/50 px-4 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-b border-border;
+  }
+
+  .data-table td {
+    @apply px-4 py-3 text-sm border-b border-border last:border-b-0;
+  }
+
+  .data-table tbody tr:hover {
+    @apply bg-muted/50;
+  }
+
+  /* Utility Components */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary/10 text-primary border border-primary/20;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary/10 text-secondary border border-secondary/20;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800 border border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800 border border-yellow-200 dark:bg-yellow-900/20 dark:text-yellow-400 dark:border-yellow-800;
+  }
+
+  .badge-danger {
+    @apply bg-red-100 text-red-800 border border-red-200 dark:bg-red-900/20 dark:text-red-400 dark:border-red-800;
+  }
+
+  /* Loading States */
+  .loading-spinner {
+    @apply animate-spin rounded-full border-2 border-gray-300 border-t-primary;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  /* Responsive utilities */
+  .container {
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-12 lg:py-16;
+  }
+
+  .section-header {
+    @apply text-center mb-12;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl mx-auto;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+}
+
+@layer utilities {
+  /* Text utilities */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Layout utilities */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+
+
+  /* Focus utilities */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Agricultural theme utilities */
+  .bg-farm-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Dark mode utilities */
+  .dark-mode-toggle {
+    @apply p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(45, 80, 22, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(45, 80, 22, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(45, 80, 22, 0);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-after: always;
+  }
+  
+  .print-avoid-break {
+    page-break-inside: avoid;
+  }
+}
