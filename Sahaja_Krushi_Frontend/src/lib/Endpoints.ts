@@ -1,5 +1,5 @@
 // Base URL
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://sahaja-krushi-backend-1.onrender.com";
 
 // API Context
 export const API_CONTEXT = "api/V1";
